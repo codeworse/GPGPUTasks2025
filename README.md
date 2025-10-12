@@ -1,10 +1,19 @@
-В этом репозитории предложены задания для [курса по вычислениям на видеокартах в CS Space](https://csspace.io/course/2025fall-gpu/)
+В этом репозитории предложены задания для курса по вычислениям на видеокартах 2025.
 
-Задания:
+[Остальные задания](https://github.com/GPGPUCourse/GPGPUTasks2025/).
 
-- [Задание 0](https://github.com/GPGPUCourse/GPGPUTasks2025/tree/task00): ```[до 22.09, 5 баллов]``` Вводное.
-- [Задание 1](https://github.com/GPGPUCourse/GPGPUTasks2025/tree/task01): ```[до 29.09, 5 баллов]``` A+B сложение матриц (задание на *coalesced memory access*).
-- [Задание 2](https://github.com/GPGPUCourse/GPGPUTasks2025/tree/task02): ```[до 06.10, 10 баллов]``` Теоретическое задание ```4 балла``` + практическое задание ```6 баллов```: фрактал Мандельброта, сумма чисел.
-- [Задание 3](https://github.com/GPGPUCourse/GPGPUTasks2025/tree/task03): ```[до 13.10, 10 баллов]``` Транспонирование матрицы. Умножение матриц. Дополнительные баллы ```престижа``` за Tensor Cores (CUDA, WMMA) или cooperative matrix (расширение Vulkan).
-- [Задание 4](https://github.com/GPGPUCourse/GPGPUTasks2025/tree/task04): ```[до 20.10, ?? баллов]``` Префиксные суммы. Дополнительные баллы ```престижа``` за что-то **ДЕЙСТВИТЕЛЬНО** быстрое.
+# Задание 3. Транспонирование и умножение матриц
 
+[![Build Status](https://github.com/GPGPUCourse/GPGPUTasks2025/actions/workflows/cmake.yml/badge.svg?branch=task03&event=push)](https://github.com/GPGPUCourse/GPGPUTasks2025/actions/workflows/cmake.yml)
+
+В этом задании вам предлагается выбрать API (OpenCL, CUDA или Vulkan) и написать кернелы:
+
+1) Транспонировать матрицу наивно
+2) Транспонировать матрицу оптимально (coalesced access pattern) благодаря использованию локальной памяти
+3) Умножить две матрицы наивно
+4) Умножить две матрицы переиспользуя элементы подгруженные из VRAM благодаря явному кэшированию тайлов в локальной памяти
+5) *(опциональное)* За дополнительные супер-пупер баллы ```престижа``` реализуйте умножение матриц через *WMMA* (если **CUDA**) или *cooperative matrix* (если **Vulkan**). И делитесь достигнутыми GFlops в чате в секции **Benchmarking**, лидеры получат доп. баллы ```гипер-престижа``` (главное убедитесь что я вам в баллах при закрытии PR об этом не забыл - пишите в личку если что).
+
+Про *cooperative matrix* в **Vulkan** посмотрите [слайды 105-110](https://github.com/GPGPUCourse/GPGPUTasks2025/blob/main/slides/GPU_04_matrices_transpose_multiply.pdf)
+
+**Дедлайн**: 23:59 13 октября. Но очень советую сделать в ближайшую неделю. В целом в рамках курса будет много домашних заданий и будет тяжело.
